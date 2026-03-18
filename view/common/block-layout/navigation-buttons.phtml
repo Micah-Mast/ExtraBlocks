@@ -1,0 +1,22 @@
+<?php if (empty($buttons)) return; ?>
+<div class="nav-buttons" style="
+    --nav-btn-text: <?php echo htmlspecialchars($textColor); ?>;
+    --nav-btn-bg: <?php echo htmlspecialchars($bgColor); ?>;
+    --nav-btn-border: <?php echo htmlspecialchars($borderColor); ?>;
+">
+    <?php foreach ($buttons as $button): ?>
+        <?php
+        $label    = $button['label'] ?? '';
+        $url      = $button['url'] ?? '#';
+        $assetUrl = $button['asset_url'] ?? '';
+        ?>
+        <a class="nav-button" href="<?php echo htmlspecialchars($url); ?>">
+            <?php if ($assetUrl): ?>
+                <span class="nav-button__icon">
+                    <img src="<?php echo htmlspecialchars($assetUrl); ?>" alt="<?php echo htmlspecialchars($label); ?>">
+                </span>
+            <?php endif; ?>
+            <span class="nav-button__label"><?php echo htmlspecialchars($label); ?></span>
+        </a>
+    <?php endforeach; ?>
+</div>

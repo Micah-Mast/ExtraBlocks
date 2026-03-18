@@ -1,0 +1,15 @@
+<?php if ($totalPages > 1): ?>
+    <div class="item-set-grid__pagination">
+        <?php if ($page > 1): ?>
+            <a class="item-set-grid__prev" href="?<?php echo http_build_query(['grid_page' => $page, 'sort_by' => $sortBy, 'sort_order' => $sortOrder, 'view_mode' => $viewMode]); ?>">&#8592; Previous</a>
+        <?php endif; ?>
+        <?php
+        $from = (($page - 1) * $perPage) + 1;
+        $to   = min($page * $perPage, $totalCount);
+        ?>
+        <span class="item-set-grid__page-count"><?php echo $from; ?>–<?php echo $to; ?> of <?php echo $totalCount; ?></span>
+        <?php if ($page < $totalPages): ?>
+            <a class="item-set-grid__next" href="?<?php echo http_build_query(['grid_page' => $page + 1, 'sort_by' => $sortBy, 'sort_order' => $sortOrder, 'view_mode' => $viewMode]); ?>">Next &#8594;</a>
+        <?php endif; ?>
+    </div>
+<?php endif; ?>

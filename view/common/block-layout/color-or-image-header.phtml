@@ -1,0 +1,75 @@
+<div class='color-or-image-header' style="
+--color-or-image-header-text-color: <?php echo htmlspecialchars($textColor); ?>;
+">
+<?php
+$marginBottom = ($overlapBottom && $overlapBottom !== '0px') ? 'margin-bottom: -' . htmlspecialchars($overlapBottom) . ';' : '';
+$marginTop = ($overlapTop && $overlapTop !== '0px') ? 'margin-top: -' . htmlspecialchars($overlapTop) . ';' : '';
+$heightProp = $text ? 'min-height' : 'height';
+$bgSize = htmlspecialchars($imageSize);
+$bgPosition = 'center ' . htmlspecialchars($verticalPosition);
+
+$alpha = (float)$overlayOpacity;
+if ($alpha > 1) { $alpha = $alpha / 100; }
+
+$hex = ltrim($overlayColor, '#');
+$r = hexdec(substr($hex, 0, 2));
+$g = hexdec(substr($hex, 2, 2));
+$b = hexdec(substr($hex, 4, 2));
+$rgba = "rgba({$r}, {$g}, {$b}, {$alpha})";
+?>
+<div class="header-block alignfull" style="
+    position: relative;
+    overflow: hidden;
+    <?php echo $heightProp; ?>: <?php echo htmlspecialchars($height); ?>;
+    <?php echo $marginBottom; ?>
+    <?php echo $marginTop; ?>
+    z-index: <?php echo $zIndex; ?>;
+    background-image: url('<?php echo htmlspecialchars($assetUrl); ?>');
+    background-size: <?php echo $bgSize; ?>;
+    background-position: <?php echo $bgPosition; ?>;
+    background-repeat: no-repeat;
+">
+<?php if ($alpha > 0): ?>
+    <div class="header-block__overlay" style="
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        top: auto;
+        height: <?php echo $overlayHeight; ?>;
+        background-color: <?php echo $rgba; ?>;
+        z-index: <?php echo $zIndex + 1; ?>;
+        pointer-events: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    ">
+        <?php if ($text): ?>
+            <div class="header-block__content" style="
+                position: relative;
+                z-index: <?php echo $zIndex + 2; ?>;
+                width: 100%;
+                text-align: center;
+            ">
+                <h2 class="header-block__heading" style="color: <?php echo htmlspecialchars($textColor); ?>;">
+                    <?php echo $text; ?>
+                </h2>
+            </div>
+        <?php endif; ?>
+    </div>
+<?php else: ?>
+<?php if ($text): ?>
+            <div class="header-block__content" style="
+                position: relative;
+                z-index: 2;
+                width: 100%;
+                text-align: center;
+            ">
+                <h2 class="header-block__heading" style="color: <?php echo htmlspecialchars($textColor); ?>;">
+                    <?php echo $text; ?>
+                </h2>
+            </div>
+        <?php endif; ?>
+</div>
+<?php endif; ?>
+</div>

@@ -1,0 +1,28 @@
+<?php if (empty($buttons)) return; ?>
+<div class="image-buttons" style="
+    --image-btn-text: <?php echo htmlspecialchars($textColor); ?>;
+    --image-btn-border: <?php echo htmlspecialchars($borderColor); ?>;
+    --image-btn-height: <?php echo htmlspecialchars($height); ?>;
+    --image-btn-count: <?php echo count($buttons); ?>;
+    --image-btn-radius: <?php echo htmlspecialchars($borderRadius); ?>;
+    --image-btn-gap: <?php echo htmlspecialchars($gap); ?>;
+">
+    <?php foreach ($buttons as $button): ?>
+        <?php
+        $description = $button['description'] ?? '';
+        $url         = $button['url'] ?? '#';
+        $assetUrl    = $button['asset_url'] ?? '';
+        $bgSize      = $button['image_size'] ?? 'cover';
+        $bgPosition  = 'center ' . ($button['vertical_position'] ?? '50%');
+        ?>
+        <a class="image-button" href="<?php echo htmlspecialchars($url); ?>" style="
+            background-image: url('<?php echo htmlspecialchars($assetUrl); ?>');
+            background-size: <?php echo $bgSize; ?>;
+            background-position: <?php echo $bgPosition; ?>;
+        ">
+        <div class="image-button__overlay">
+            <span class="image-button__description"><?php echo $description; ?></span>
+        </div>
+        </a>
+    <?php endforeach; ?>
+</div>
