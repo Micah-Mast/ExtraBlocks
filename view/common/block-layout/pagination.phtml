@@ -1,16 +1,19 @@
 <?php if ($totalPages > 1): ?>
     <div class="item-set-grid__pagination">
         <?php if ($page > 1): ?>
-            <a class="item-set-grid__prev" href="?<?php echo http_build_query(['grid_page' => $page - 1, 'sort_by' => $sortBy, 'sort_order' => $sortOrder, 'view_mode' => $viewMode]); ?>">
+            <a class="item-set-grid__prev" href="?<?php echo http_build_query([
+                'grid_page_' . $blockId    => $page - 1,
+                'sort_by_' . $blockId      => $sortBy,
+                'sort_order_' . $blockId   => $sortOrder,
+                'view_mode_' . $blockId    => $viewMode,
+            ]); ?>">
                 &#8592; <?php echo $this->translate('Previous'); ?>
             </a>
         <?php endif; ?>
-        
+
         <?php
         $from = (($page - 1) * $perPage) + 1;
         $to   = min($page * $perPage, $totalCount);
-        
-        // Using sprintf allows translators to move the numbers around if needed
         echo sprintf(
             $this->translate('<span class="item-set-grid__page-count">%1$d–%2$d of %3$d</span>'),
             $from,
@@ -20,7 +23,12 @@
         ?>
 
         <?php if ($page < $totalPages): ?>
-            <a class="item-set-grid__next" href="?<?php echo http_build_query(['grid_page' => $page + 1, 'sort_by' => $sortBy, 'sort_order' => $sortOrder, 'view_mode' => $viewMode]); ?>">
+            <a class="item-set-grid__next" href="?<?php echo http_build_query([
+                'grid_page_' . $blockId    => $page + 1,
+                'sort_by_' . $blockId      => $sortBy,
+                'sort_order_' . $blockId   => $sortOrder,
+                'view_mode_' . $blockId    => $viewMode,
+            ]); ?>">
                 <?php echo $this->translate('Next'); ?> &#8594;
             </a>
         <?php endif; ?>
