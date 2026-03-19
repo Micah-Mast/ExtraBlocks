@@ -1,6 +1,7 @@
 <?php declare(strict_types=1);
 
 namespace ExtraBlocks;
+
 return [
     'block_layouts' => [
         'invokables' => [
@@ -13,6 +14,16 @@ return [
     'view_manager' => [
         'template_path_stack' => [
             __DIR__ . '/../view',
+        ],
+    ],
+    'translator' => [
+        'translation_file_patterns' => [
+            [
+                'type' => 'gettext',
+                'base_dir' => __DIR__ . '/../language',
+                'pattern' => '%s.mo',
+                'text_domain' => null, // Use null to use the default domain
+            ],
         ],
     ],
     'asset_manager' => [

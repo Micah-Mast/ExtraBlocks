@@ -1,0 +1,170 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ExtraBlocks\n"
+"Language: es\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Navigation Buttons"
+msgstr "Botones de Navegación"
+
+msgid "Item Set Grid"
+msgstr "Cuadrícula de Conjunto de Ítems"
+
+msgid "ColorOrImageHeader"
+msgstr "Encabezado de Color o Imagen"
+
+msgid "No items found."
+msgstr "No se encontraron ítems."
+
+msgid "Sort by:"
+msgstr "Ordenar por:"
+
+msgid "Title"
+msgstr "Título"
+
+msgid "Date"
+msgstr "Fecha"
+
+msgid "Author/Creator"
+msgstr "Autor/Creador"
+
+msgid "Ascending"
+msgstr "Ascendente"
+
+msgid "Descending"
+msgstr "Descendente"
+
+msgid "Previous"
+msgstr "Anterior"
+
+msgid "Next"
+msgstr "Siguiente"
+
+msgid "Grid view"
+msgstr "Vista de cuadrícula"
+
+msgid "List view"
+msgstr "Vista de lista"
+
+msgid "Color or Image Header"
+msgstr "Encabezado de Color o Imagen"
+
+msgid "Text"
+msgstr "Texto"
+
+msgid "Text color"
+msgstr "Color de texto"
+
+msgid "Height (CSS value e.g. 40vh, 300px)"
+msgstr "Altura (valor CSS, p.ej. 40vh, 300px)"
+
+msgid "Image size (e.g. cover, contain, 150%, 300px)"
+msgstr "Tamaño de imagen (p.ej. cover, contain, 150%, 300px)"
+
+msgid "Image vertical position (e.g. 0% = top, 50% = center, 100% = bottom)"
+msgstr "Posición vertical de la imagen (p.ej. 0% = arriba, 50% = centro, 100% = abajo)"
+
+msgid "Overlay color"
+msgstr "Color de superposición"
+
+msgid "Overlay opacity (0 = none, 1 = full)"
+msgstr "Opacidad de superposición (0 = ninguna, 1 = completa)"
+
+msgid "Overlay Height (CSS value e.g. 40vh, 300px, 50%)"
+msgstr "Altura de superposición (valor CSS, p.ej. 40vh, 300px, 50%)"
+
+msgid "Previous element overlap (CSS value e.g. 50px, 0px to disable)"
+msgstr "Superposición con elemento anterior (valor CSS, p.ej. 50px, 0px para desactivar)"
+
+msgid "Next element overlap (CSS value e.g. 50px, 0px to disable)"
+msgstr "Superposición con elemento siguiente (valor CSS, p.ej. 50px, 0px para desactivar)"
+
+msgid "Z-index (integer, default 0)"
+msgstr "Z-index (entero, predeterminado 0)"
+
+msgid "Banner Image"
+msgstr "Imagen de encabezado"
+
+msgid "Clear"
+msgstr "Limpiar"
+
+msgid "Select image"
+msgstr "Seleccionar imagen"
+
+msgid "Image Buttons"
+msgstr "Botones de Imagen"
+
+msgid "Border color (shows on hover)"
+msgstr "Color de borde (aparece al pasar el cursor)"
+
+msgid "Transparent"
+msgstr "Transparente"
+
+msgid "Button height (CSS value e.g. 200px, 30vh)"
+msgstr "Altura del botón (valor CSS, p.ej. 200px, 30vh)"
+
+msgid "Button border radius (CSS value e.g. 25px, 0)"
+msgstr "Radio de borde del botón (valor CSS, p.ej. 25px, 0)"
+
+msgid "Gap between buttons (CSS value e.g. 10px, 1em)"
+msgstr "Espacio entre botones (valor CSS, p.ej. 10px, 1em)"
+
+msgid "Number of buttons"
+msgstr "Número de botones"
+
+msgid "Button"
+msgstr "Botón"
+
+msgid "Description"
+msgstr "Descripción"
+
+msgid "URL Slug"
+msgstr "Slug de URL"
+
+msgid "Icon / Image"
+msgstr "Ícono / Imagen"
+
+msgid "Item Set Grid"
+msgstr "Cuadrícula de Conjunto de Ítems"
+
+msgid "Item Set"
+msgstr "Conjunto de Ítems"
+
+msgid "Select item set"
+msgstr "Seleccionar conjunto de ítems"
+
+msgid "Items per page"
+msgstr "Ítems por página"
+
+msgid "Default sort"
+msgstr "Orden predeterminado"
+
+msgid "Block Width (CSS value e.g. 250px, 20vw)"
+msgstr "Ancho del bloque (valor CSS, p.ej. 250px, 20vw)"
+
+msgid "Block Height (CSS value e.g. 300px, 30vh)"
+msgstr "Altura del bloque (valor CSS, p.ej. 300px, 30vh)"
+
+msgid "Border radius (CSS value e.g. 25px, 0)"
+msgstr "Radio de borde (valor CSS, p.ej. 25px, 0)"
+
+msgid "Border Color"
+msgstr "Color de borde"
+
+msgid "No item set selected."
+msgstr "No se ha seleccionado ningún conjunto de ítems."
+
+msgid "Could not load items."
+msgstr "No se pudieron cargar los ítems."
+
+msgid "Navigation Buttons"
+msgstr "Botones de Navegación"
+
+msgid "Background color"
+msgstr "Color de fondo"
+
+msgid "Label"
+msgstr "Etiqueta"
+
+msgid "<span class=\"item-set-grid__page-count\">%1$d–%2$d of %3$d</span>"
+msgstr "<span class=\"item-set-grid__page-count\">%1$d–%2$d de %3$d</span>"

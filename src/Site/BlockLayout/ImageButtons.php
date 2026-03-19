@@ -11,7 +11,7 @@ class ImageButtons extends AbstractBlockLayout
 {
     public function getLabel()
     {
-        return 'Image Buttons';
+        return 'Image Buttons'; // @translate
     }
 
     public function prepareForm(PhpRenderer $view)
@@ -39,7 +39,7 @@ class ImageButtons extends AbstractBlockLayout
         // Text color
         $textColor = htmlspecialchars($data['text_color'] ?? '#111111');
         $html .= '<div class="field">';
-        $html .= '<div class="field-meta"><label>Text color</label></div>';
+        $html .= '<div class="field-meta"><label>' . $view->translate('Text color') . '</label></div>';
         $html .= '<div class="inputs"><input type="color" name="o:block[__blockIndex__][o:data][text_color]" value="' . $textColor . '"></div>';
         $html .= '</div>';
 
@@ -47,36 +47,38 @@ class ImageButtons extends AbstractBlockLayout
         $borderColor       = htmlspecialchars($data['border_color'] ?? '#111111');
         $borderTransparent = !empty($data['border_transparent']) ? ' checked' : '';
         $html .= '<div class="field">';
-        $html .= '<div class="field-meta"><label>Border color (shows on hover)</label></div>';
+        $html .= '<div class="field-meta"><label>' . $view->translate('Border color (shows on hover)') . '</label></div>';
         $html .= '<div class="inputs" style="display:flex;align-items:center;gap:10px;">';
         $html .= '<input type="color" name="o:block[__blockIndex__][o:data][border_color]" value="' . $borderColor . '"' . (!empty($data['border_transparent']) ? ' disabled' : '') . '>';
         $html .= '<label style="display:flex;align-items:center;gap:5px;">';
-        $html .= '<input type="checkbox" class="siteblocks-transparent-check" name="o:block[__blockIndex__][o:data][border_transparent]" value="1"' . $borderTransparent . '> Transparent';
+        $html .= '<input type="checkbox" class="siteblocks-transparent-check" name="o:block[__blockIndex__][o:data][border_transparent]" value="1"' . $borderTransparent . '> ' . $view->translate('Transparent');
         $html .= '</label>';
         $html .= '</div></div>';
 
+        // Height
         $height = htmlspecialchars($data['height'] ?? '20vh');
         $html .= '<div class="field">';
-        $html .= '<div class="field-meta"><label>Button height (CSS value e.g. 200px, 30vh)</label></div>';
+        $html .= '<div class="field-meta"><label>' . $view->translate('Button height (CSS value e.g. 200px, 30vh)') . '</label></div>';
         $html .= '<div class="inputs"><input type="text" name="o:block[__blockIndex__][o:data][height]" value="' . $height . '"></div>';
         $html .= '</div>';
 
+        // Border radius
         $borderRadius = htmlspecialchars($data['border_radius'] ?? '0px');
         $html .= '<div class="field">';
-        $html .= '<div class="field-meta"><label>Button border radius (CSS value e.g. 25px, 0)</label></div>';
+        $html .= '<div class="field-meta"><label>' . $view->translate('Button border radius (CSS value e.g. 25px, 0)') . '</label></div>';
         $html .= '<div class="inputs"><input type="text" name="o:block[__blockIndex__][o:data][border_radius]" value="' . $borderRadius . '"></div>';
         $html .= '</div>';
 
+        // Gap
         $gap = htmlspecialchars($data['gap'] ?? '10px');
         $html .= '<div class="field">';
-        $html .= '<div class="field-meta"><label>Gap between buttons (CSS value e.g. 10px, 1em)</label></div>';
+        $html .= '<div class="field-meta"><label>' . $view->translate('Gap between buttons (CSS value e.g. 10px, 1em)') . '</label></div>';
         $html .= '<div class="inputs"><input type="text" name="o:block[__blockIndex__][o:data][gap]" value="' . $gap . '"></div>';
         $html .= '</div>';
 
-
         // Button count selector
         $html .= '<div class="field">';
-        $html .= '<div class="field-meta"><label>Number of buttons</label></div>';
+        $html .= '<div class="field-meta"><label>' . $view->translate('Number of buttons') . '</label></div>';
         $html .= '<div class="inputs"><select name="o:block[__blockIndex__][o:data][button_count]" class="nav-btn-count">';
         foreach ([2, 3, 4] as $n) {
             $selected = $buttonCount == $n ? ' selected' : '';
@@ -86,32 +88,32 @@ class ImageButtons extends AbstractBlockLayout
 
         // Individual button fields
         for ($i = 0; $i < 4; $i++) {
-            $description     = $buttons[$i]['description'] ?? '';
-            $url       = htmlspecialchars($buttons[$i]['url'] ?? '');
-            $imageSize = htmlspecialchars($buttons[$i]['image_size'] ?? 'cover');
-            $assetId   = $buttons[$i]['asset_id'] ?? '';
-            $assetUrl  = htmlspecialchars($buttons[$i]['asset_url'] ?? '');
-            $assetName = htmlspecialchars($buttons[$i]['asset_name'] ?? '');
-            $display   = $i < $buttonCount ? '' : ' style="display:none"';
+            $description = $buttons[$i]['description'] ?? '';
+            $url         = htmlspecialchars($buttons[$i]['url'] ?? '');
+            $imageSize   = htmlspecialchars($buttons[$i]['image_size'] ?? 'cover');
+            $assetId     = $buttons[$i]['asset_id'] ?? '';
+            $assetUrl    = htmlspecialchars($buttons[$i]['asset_url'] ?? '');
+            $assetName   = htmlspecialchars($buttons[$i]['asset_name'] ?? '');
+            $display     = $i < $buttonCount ? '' : ' style="display:none"';
 
             $html .= "<div class=\"nav-btn-group\" data-index=\"{$i}\"{$display}>";
-            $html .= "<h4>Button " . ($i + 1) . "</h4>";
+            $html .= '<h4>' . $view->translate('Button') . ' ' . ($i + 1) . '</h4>';
 
             // Description
             $html .= '<div class="field">';
-            $html .= '<div class="field-meta"><label>Description</label></div>';
+            $html .= '<div class="field-meta"><label>' . $view->translate('Description') . '</label></div>';
             $html .= '<div class="inputs"><textarea name="o:block[__blockIndex__][o:data][buttons][' . $i . '][description]">' . $description . '</textarea></div>';
             $html .= '</div>';
 
             // URL
             $html .= '<div class="field">';
-            $html .= '<div class="field-meta"><label>URL Slug</label></div>';
+            $html .= '<div class="field-meta"><label>' . $view->translate('URL Slug') . '</label></div>';
             $html .= '<div class="inputs"><input type="text" name="o:block[__blockIndex__][o:data][buttons][' . $i . '][url]" value="' . $url . '"></div>';
             $html .= '</div>';
 
             // Asset picker
             $html .= '<div class="field">';
-            $html .= '<div class="field-meta"><label>Icon / Image</label></div>';
+            $html .= '<div class="field-meta"><label>' . $view->translate('Icon / Image') . '</label></div>';
             $html .= '<div class="inputs">';
             $html .= '<div class="siteblocks-asset-picker">';
 
@@ -126,22 +128,22 @@ class ImageButtons extends AbstractBlockLayout
             $html .= '</div>';
 
             $clearStyle = $assetId ? '' : ' style="display:none"';
-            $html .= '<a href="#" class="siteblocks-asset-clear button alert"' . $clearStyle . '>Clear</a> ';
-            $html .= '<a href="#" class="siteblocks-asset-select button" data-sidebar-url="' . htmlspecialchars($sidebarUrl) . '">Select image</a>';
+            $html .= '<a href="#" class="siteblocks-asset-clear button alert"' . $clearStyle . '>' . $view->translate('Clear') . '</a> ';
+            $html .= '<a href="#" class="siteblocks-asset-select button" data-sidebar-url="' . htmlspecialchars($sidebarUrl) . '">' . $view->translate('Select image') . '</a>';
 
             $html .= '</div>'; // .siteblocks-asset-picker
             $html .= '</div></div>';
 
             // Image size
             $html .= '<div class="field">';
-            $html .= '<div class="field-meta"><label>Image size (e.g. cover, contain, 150%, 300px)</label></div>';
+            $html .= '<div class="field-meta"><label>' . $view->translate('Image size (e.g. cover, contain, 150%, 300px)') . '</label></div>';
             $html .= '<div class="inputs"><input type="text" name="o:block[__blockIndex__][o:data][buttons][' . $i . '][image_size]" value="' . $imageSize . '"></div>';
             $html .= '</div>';
 
             $html .= '</div>'; // .nav-btn-group
         }
 
-        $html .= '</div>'; // .nav-buttons-form
+        $html .= '</div>'; // .image-buttons-form
 
         return $html;
     }

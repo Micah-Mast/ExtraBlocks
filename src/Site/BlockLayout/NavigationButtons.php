@@ -11,7 +11,7 @@ class NavigationButtons extends AbstractBlockLayout
 {
     public function getLabel()
     {
-        return 'Navigation Buttons';
+        return 'Navigation Buttons'; // @translate
     }
 
     public function prepareForm(PhpRenderer $view)
@@ -39,7 +39,7 @@ class NavigationButtons extends AbstractBlockLayout
         // Text color
         $textColor = htmlspecialchars($data['text_color'] ?? '#111111');
         $html .= '<div class="field">';
-        $html .= '<div class="field-meta"><label>Text color</label></div>';
+        $html .= '<div class="field-meta"><label>' . $view->translate('Text color') . '</label></div>';
         $html .= '<div class="inputs"><input type="color" name="o:block[__blockIndex__][o:data][text_color]" value="' . $textColor . '"></div>';
         $html .= '</div>';
 
@@ -47,11 +47,11 @@ class NavigationButtons extends AbstractBlockLayout
         $bgColor       = htmlspecialchars($data['bg_color'] ?? '#ffffff');
         $bgTransparent = !empty($data['bg_transparent']) ? ' checked' : '';
         $html .= '<div class="field">';
-        $html .= '<div class="field-meta"><label>Background color</label></div>';
+        $html .= '<div class="field-meta"><label>' . $view->translate('Background color') . '</label></div>';
         $html .= '<div class="inputs" style="display:flex;align-items:center;gap:10px;">';
         $html .= '<input type="color" name="o:block[__blockIndex__][o:data][bg_color]" value="' . $bgColor . '"' . (!empty($data['bg_transparent']) ? ' disabled' : '') . '>';
         $html .= '<label style="display:flex;align-items:center;gap:5px;">';
-        $html .= '<input type="checkbox" class="siteblocks-transparent-check" name="o:block[__blockIndex__][o:data][bg_transparent]" value="1"' . $bgTransparent . '> Transparent';
+        $html .= '<input type="checkbox" class="siteblocks-transparent-check" name="o:block[__blockIndex__][o:data][bg_transparent]" value="1"' . $bgTransparent . '> ' . $view->translate('Transparent');
         $html .= '</label>';
         $html .= '</div></div>';
 
@@ -59,17 +59,17 @@ class NavigationButtons extends AbstractBlockLayout
         $borderColor       = htmlspecialchars($data['border_color'] ?? '#111111');
         $borderTransparent = !empty($data['border_transparent']) ? ' checked' : '';
         $html .= '<div class="field">';
-        $html .= '<div class="field-meta"><label>Border color (shows on hover)</label></div>';
+        $html .= '<div class="field-meta"><label>' . $view->translate('Border color (shows on hover)') . '</label></div>';
         $html .= '<div class="inputs" style="display:flex;align-items:center;gap:10px;">';
         $html .= '<input type="color" name="o:block[__blockIndex__][o:data][border_color]" value="' . $borderColor . '"' . (!empty($data['border_transparent']) ? ' disabled' : '') . '>';
         $html .= '<label style="display:flex;align-items:center;gap:5px;">';
-        $html .= '<input type="checkbox" class="siteblocks-transparent-check" name="o:block[__blockIndex__][o:data][border_transparent]" value="1"' . $borderTransparent . '> Transparent';
+        $html .= '<input type="checkbox" class="siteblocks-transparent-check" name="o:block[__blockIndex__][o:data][border_transparent]" value="1"' . $borderTransparent . '> ' . $view->translate('Transparent');
         $html .= '</label>';
         $html .= '</div></div>';
 
         // Button count selector
         $html .= '<div class="field">';
-        $html .= '<div class="field-meta"><label>Number of buttons</label></div>';
+        $html .= '<div class="field-meta"><label>' . $view->translate('Number of buttons') . '</label></div>';
         $html .= '<div class="inputs"><select name="o:block[__blockIndex__][o:data][button_count]" class="nav-btn-count">';
         foreach ([2, 3, 4] as $n) {
             $selected = $buttonCount == $n ? ' selected' : '';
@@ -87,23 +87,23 @@ class NavigationButtons extends AbstractBlockLayout
             $display   = $i < $buttonCount ? '' : ' style="display:none"';
 
             $html .= "<div class=\"nav-btn-group\" data-index=\"{$i}\"{$display}>";
-            $html .= "<h4>Button " . ($i + 1) . "</h4>";
+            $html .= '<h4>' . $view->translate('Button') . ' ' . ($i + 1) . '</h4>';
 
             // Label
             $html .= '<div class="field">';
-            $html .= '<div class="field-meta"><label>Label</label></div>';
+            $html .= '<div class="field-meta"><label>' . $view->translate('Label') . '</label></div>';
             $html .= '<div class="inputs"><input type="text" name="o:block[__blockIndex__][o:data][buttons][' . $i . '][label]" value="' . $label . '"></div>';
             $html .= '</div>';
 
             // URL
             $html .= '<div class="field">';
-            $html .= '<div class="field-meta"><label>URL Slug</label></div>';
+            $html .= '<div class="field-meta"><label>' . $view->translate('URL Slug') . '</label></div>';
             $html .= '<div class="inputs"><input type="text" name="o:block[__blockIndex__][o:data][buttons][' . $i . '][url]" value="' . $url . '"></div>';
             $html .= '</div>';
 
             // Asset picker
             $html .= '<div class="field">';
-            $html .= '<div class="field-meta"><label>Icon / Image</label></div>';
+            $html .= '<div class="field-meta"><label>' . $view->translate('Icon / Image') . '</label></div>';
             $html .= '<div class="inputs">';
             $html .= '<div class="siteblocks-asset-picker">';
 
@@ -118,8 +118,8 @@ class NavigationButtons extends AbstractBlockLayout
             $html .= '</div>';
 
             $clearStyle = $assetId ? '' : ' style="display:none"';
-            $html .= '<a href="#" class="siteblocks-asset-clear button alert"' . $clearStyle . '>Clear</a> ';
-            $html .= '<a href="#" class="siteblocks-asset-select button" data-sidebar-url="' . htmlspecialchars($sidebarUrl) . '">Select image</a>';
+            $html .= '<a href="#" class="siteblocks-asset-clear button alert"' . $clearStyle . '>' . $view->translate('Clear') . '</a> ';
+            $html .= '<a href="#" class="siteblocks-asset-select button" data-sidebar-url="' . htmlspecialchars($sidebarUrl) . '">' . $view->translate('Select image') . '</a>';
 
             $html .= '</div>'; // .siteblocks-asset-picker
             $html .= '</div></div>';
