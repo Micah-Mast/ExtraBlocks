@@ -168,3 +168,33 @@ msgstr "Etiqueta"
 
 msgid "<span class=\"item-set-grid__page-count\">%1$d–%2$d of %3$d</span>"
 msgstr "<span class=\"item-set-grid__page-count\">%1$d–%2$d de %3$d</span>"
+
+msgid "Display mode"
+msgstr "Modo de visualización"
+
+msgid "Manual selection"
+msgstr "Selección manual"
+
+msgid "Number of items"
+msgstr "Número de ítems"
+
+msgid "Slot"
+msgstr "Ranura"
+
+msgid "Type"
+msgstr "Tipo"
+
+msgid "Item"
+msgstr "Ítem"
+
+msgid "Resource"
+msgstr "Recurso"
+
+msgid "Select"
+msgstr "Seleccionar"
+
+msgid "Add item set"
+msgstr "Agregar conjunto de ítems"
+
+msgid "Remove"
+msgstr "Eliminar"
