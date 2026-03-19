@@ -7,10 +7,8 @@ $marginTop = ($overlapTop && $overlapTop !== '0px') ? 'margin-top: -' . htmlspec
 $heightProp = $text ? 'min-height' : 'height';
 $bgSize = htmlspecialchars($imageSize);
 $bgPosition = 'center ' . htmlspecialchars($verticalPosition);
-
 $alpha = (float)$overlayOpacity;
 if ($alpha > 1) { $alpha = $alpha / 100; }
-
 $hex = ltrim($overlayColor, '#');
 $r = hexdec(substr($hex, 0, 2));
 $g = hexdec(substr($hex, 2, 2));
@@ -29,36 +27,36 @@ $rgba = "rgba({$r}, {$g}, {$b}, {$alpha})";
     background-position: <?php echo $bgPosition; ?>;
     background-repeat: no-repeat;
 ">
-<?php if ($alpha > 0): ?>
-    <div class="header-block__overlay" style="
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        top: auto;
-        height: <?php echo $overlayHeight; ?>;
-        background-color: <?php echo $rgba; ?>;
-        z-index: <?php echo $zIndex + 1; ?>;
-        pointer-events: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    ">
+    <?php if ($alpha > 0): ?>
+        <div class="header-block__overlay" style="
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            top: auto;
+            height: <?php echo $overlayHeight; ?>;
+            background-color: <?php echo $rgba; ?>;
+            z-index: <?php echo $zIndex + 1; ?>;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        ">
+            <?php if ($text): ?>
+                <div class="header-block__content" style="
+                    position: relative;
+                    z-index: <?php echo $zIndex + 2; ?>;
+                    width: 100%;
+                    text-align: center;
+                ">
+                    <h2 class="header-block__heading" style="color: <?php echo htmlspecialchars($textColor); ?>;">
+                        <?php echo $text; ?>
+                    </h2>
+                </div>
+            <?php endif; ?>
+        </div>
+    <?php else: ?>
         <?php if ($text): ?>
-            <div class="header-block__content" style="
-                position: relative;
-                z-index: <?php echo $zIndex + 2; ?>;
-                width: 100%;
-                text-align: center;
-            ">
-                <h2 class="header-block__heading" style="color: <?php echo htmlspecialchars($textColor); ?>;">
-                    <?php echo $text; ?>
-                </h2>
-            </div>
-        <?php endif; ?>
-    </div>
-<?php else: ?>
-<?php if ($text): ?>
             <div class="header-block__content" style="
                 position: relative;
                 z-index: 2;
@@ -70,6 +68,6 @@ $rgba = "rgba({$r}, {$g}, {$b}, {$alpha})";
                 </h2>
             </div>
         <?php endif; ?>
-</div>
-<?php endif; ?>
-</div>
+    <?php endif; ?>
+</div> <!-- closes .header-block -->
+</div> <!-- closes .color-or-image-header -->

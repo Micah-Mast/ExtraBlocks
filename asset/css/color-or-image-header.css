@@ -60,4 +60,8 @@
     color: var(--color-or-image-header-text-color, #fff);
 }
 
+body {
+    overflow-x: hidden;
+}
+
 .header-block h2 {margin-bottom: 0px; font-size: 3rem; font-weight: 600;}
